@@ -40,7 +40,7 @@ Connected mobile device or emulator/simulator - Android Device recommended
 **Installation**
 
 1. Clone the repository: 
-git clone https://github.com/rashida-mahroof/reels_app_ulearna.git
+git clone https://github.com/rashida-mahroof/ulearna_test
 
 2. Install dependencies:
 flutter pub get
