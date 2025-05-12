@@ -29,7 +29,7 @@ Dart SDK (comes with Flutter)
 
 Android Studio / VS Code 
 
-Connected mobile device or emulator/simulator - Android Device recommended
+Connected mobile device or emulator/simulator - (Android/ios)
 
 
 
@@ -43,10 +43,7 @@ git clone https://github.com/rashida-mahroof/ulearna_test
 2. Install dependencies:
 flutter pub get
 
-3. Generate model and bloc code (build runner):
-flutter pub run build_runner build --delete-conflicting-outputs
-
-4. Run the app:
+3. Run the app:
 flutter run
 
 
