@@ -9,7 +9,6 @@ class ReelsLoading extends ReelsState {}
 class ReelsLoaded extends ReelsState {
   final List<Reel> reels;
   final bool hasMore;
-
   ReelsLoaded(this.reels, this.hasMore);
 }
 

@@ -1,9 +1,11 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ulearna_test/core/utils/helper.dart';
 
 import '../../../../../features/reels/data/models/reel_model.dart';
 import '../../../../../features/reels/domain/usecases/fetch_reels.dart';
 import '../../../../core/utils/db.dart';
+import '../../domain/entities/reel.dart';
 
 part 'reels_event.dart';
 part 'reels_state.dart';
@@ -13,22 +15,22 @@ class ReelsBloc extends Bloc<ReelsEvent, ReelsState> {
   List<Reel> reels = [];
   int currentPage = 1;
   final int limit = 10;
-
+final PageController pageController = PageController();
   final String dbName = "reelsDb";
   final String keyName = "reelsList";
 
   ReelsBloc(this.fetchReelsUseCase) : super(ReelsInitial()) {
-    on<FetchReels>(_onFetchReels);
-    on<LoadMoreReels>(_loadMoreReels);
+    on<FetchReels>(onFetchReels);
+    on<LoadMoreReels>(loadMoreReels);
   }
 
-  Future<void> _onFetchReels(FetchReels event, Emitter<ReelsState> emit) async {
+  Future<void> onFetchReels(FetchReels event, Emitter<ReelsState> emit) async {
     emit(ReelsLoading());
     try {
       final cachedData = await Db.fromDb(dbName, keyName);
       if (cachedData != null) {
         final List reelsJson = cachedData['reels'];
-        reels = reelsJson.map((e) => Reel.fromJson(e)).toList();
+        reels = reelsJson.map((e) => ReelModel.fromJson(e)).toList();
         emit(ReelsLoaded(reels, true)); 
       }
 
@@ -37,7 +39,7 @@ class ReelsBloc extends Bloc<ReelsEvent, ReelsState> {
       currentPage = 1;
 
       await Db.toDb(dbName, keyName, {
-        "reels": reels.map((r) => r.toJson()).toList(),
+        "reels": reels,
       });
 
       emit(ReelsLoaded(reels, newReels.length == limit));
@@ -47,7 +49,7 @@ class ReelsBloc extends Bloc<ReelsEvent, ReelsState> {
     }
   }
 
-  Future<void> _loadMoreReels(LoadMoreReels event, Emitter<ReelsState> emit) async {
+  Future<void> loadMoreReels(LoadMoreReels event, Emitter<ReelsState> emit) async {
     if (state is ReelsLoaded) {
       try {
         currentPage++;
@@ -55,7 +57,7 @@ class ReelsBloc extends Bloc<ReelsEvent, ReelsState> {
         reels = [...reels, ...newReels];
 
         await Db.toDb(dbName, keyName, {
-          "reels": reels.map((r) => r.toJson()).toList(),
+          "reels": reels,
         });
 
         emit(ReelsLoaded(reels, newReels.length == limit));
@@ -64,5 +66,10 @@ class ReelsBloc extends Bloc<ReelsEvent, ReelsState> {
         emit(ReelsError(e.toString()));
       }
     }
+  }
+  @override
+  Future<void> close() {
+    pageController.dispose(); 
+    return super.close();
   }
 }

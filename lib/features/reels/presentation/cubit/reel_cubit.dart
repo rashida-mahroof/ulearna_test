@@ -34,7 +34,6 @@ class ReelsVideoState {
       duration: duration ?? this.duration,
       isBuffering: isBuffering ?? this.isBuffering,
       hasError: hasError ?? this.hasError,
-
     );
   }
 }
@@ -45,43 +44,42 @@ class ReelsVideoCubit extends Cubit<ReelsVideoState> {
   ReelsVideoCubit({required this.controller})
       : super(
           ReelsVideoState(
-            isMuted: true,
-            isPlaying: false,
-            position: Duration.zero,
-            duration: Duration.zero,
-            isBuffering: true,
-            hasError: false
-          ),
+              isMuted: true,
+              isPlaying: false,
+              position: Duration.zero,
+              duration: Duration.zero,
+              isBuffering: true,
+              hasError: false),
         ) {
     _init();
   }
 
   void _init() async {
-  try {
-    await controller.initialize();
-    controller.setLooping(true);
-    controller.play();
-    emit(state.copyWith(
-      isPlaying: controller.value.isPlaying,
-      duration: controller.value.duration,
-      isBuffering: controller.value.isBuffering,
-      hasError: false,
-    ));
-
-    controller.addListener(() {
+    try {
+      await controller.initialize();
+      controller.setLooping(true);
+      controller.play();
       emit(state.copyWith(
         isPlaying: controller.value.isPlaying,
-        position: controller.value.position,
+        duration: controller.value.duration,
         isBuffering: controller.value.isBuffering,
+        hasError: false,
       ));
-    });
-  } catch (e) {
-    printx('Video Initialization Error: $e');
-    emit(state.copyWith(
-      hasError: true,
-      isBuffering: false,
-    ));
-  }
+
+      controller.addListener(() {
+        emit(state.copyWith(
+          isPlaying: controller.value.isPlaying,
+          position: controller.value.position,
+          isBuffering: controller.value.isBuffering,
+        ));
+      });
+    } catch (e) {
+      printx('Video Initialization Error: $e');
+      emit(state.copyWith(
+        hasError: true,
+        isBuffering: false,
+      ));
+    }
   }
 
   void toggleMute() {

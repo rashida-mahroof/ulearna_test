@@ -1,3 +1,7 @@
+// ignore_for_file: unused_import
+
+import 'package:ulearna_test/features/reels/domain/entities/reel.dart';
+
 import '../../domain/repo/reels_repo.dart';
 import '../../data/models/reel_model.dart';
 import '../data_sources/reels_ds.dart';

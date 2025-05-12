@@ -25,7 +25,7 @@ targets:
         options:
           build_extensions:
             "^lib/features/reels/data/models/{{}}.dart": "lib/features/reels/data/gen/{{}}.freezed.dart"
-    # sources:
-    #   - $package$
-    #   - lib/**
+    sources:
+      - $package$
+      - lib/**
 

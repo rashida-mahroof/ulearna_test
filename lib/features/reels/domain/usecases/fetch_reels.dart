@@ -1,4 +1,6 @@
+// ignore: unused_import
 import '../../data/models/reel_model.dart';
+import '../entities/reel.dart';
 import '../repo/reels_repo.dart';
 
 class FetchReelsUseCase {

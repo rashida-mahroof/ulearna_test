@@ -1,6 +1,7 @@
 import 'package:http/http.dart' as http;
 
 import '../../../../core/utils/helper.dart';
+import '../../domain/entities/reel.dart';
 import '../models/reel_model.dart';
 
 abstract class ReelsRemoteDataSource {

@@ -1,8 +1,11 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:video_player/video_player.dart';
 import '../../../../core/utils/helper.dart';
 import '../../data/models/reel_model.dart';
+import '../../domain/entities/reel.dart';
 import '../cubit/reel_cubit.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
@@ -41,9 +44,9 @@ class ReelsCard extends StatelessWidget {
                         child: VideoPlayer(controller),
                       ),
                     )
-                  : reel.thumbCdnUrl != null
+                  : reel.thumbnailUrl != null
                       ? CachedNetworkImage(
-                          imageUrl: reel.thumbCdnUrl!,
+                          imageUrl: reel.thumbnailUrl!,
                           fit: BoxFit.cover,
                           width: double.infinity,
                           height: double.infinity,
@@ -144,9 +147,9 @@ class ReelsCard extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                   ),
                 const SizedBox(height: 8),
-                if (reel.byteAddedOn != null)
+                if (reel.createdAt != null)
                   Text(
-                    formatDate(reel.byteAddedOn),
+                    formatDate(reel.createdAt),
                     style: textTheme.bodyMedium,
                   ),
                 const SizedBox(height: 16),
