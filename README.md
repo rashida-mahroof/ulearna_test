@@ -1,23 +1,21 @@
 **Reels Flutter App**
 
 
+-> This Flutter project is a Reels Interface application featuring:
 
+-> Smooth vertical scrolling
 
-This Flutter project is a Reels Interface application featuring:
+-> Pagination with lazy loading
 
-Smooth vertical scrolling
+-> Caching (local Hive DB)
 
-Pagination with lazy loading
+-> Video playback (HLS/m3u8 via video_player)
 
-Caching (local Hive DB)
+-> Error handling and offline caching
 
-Video playback (HLS/m3u8 via video_player)
+-> Clean Architecture (Domain, Data, Presentation layers)
 
-Error handling and offline caching
-
-Clean Architecture (Domain, Data, Presentation layers)
-
-State Management using Bloc and Cubit
+-> State Management using Bloc and Cubit
 
 
 
