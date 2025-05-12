@@ -1,6 +1,8 @@
 **Reels Flutter App**
 
 
+
+
 This Flutter project is a Reels Interface application featuring:
 
 Smooth vertical scrolling
@@ -18,6 +20,9 @@ Clean Architecture (Domain, Data, Presentation layers)
 State Management using Bloc and Cubit
 
 
+
+
+
 **Prerequisites**
 
 Flutter SDK (version 3.4 or above recommended)
@@ -27,6 +32,9 @@ Dart SDK (comes with Flutter)
 Android Studio / VS Code 
 
 Connected mobile device or emulator/simulator - Android Device recommended
+
+
+
 
 
 **Installation**
@@ -42,6 +50,10 @@ flutter pub run build_runner build --delete-conflicting-outputs
 
 4. Run the app:
 flutter run
+
+
+
+
 
 
 **✨ Features**
