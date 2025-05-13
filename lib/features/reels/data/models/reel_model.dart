@@ -5,8 +5,8 @@ import 'package:ulearna_test/features/reels/data/models/category_model.dart';
 import 'package:ulearna_test/features/reels/data/models/user_model.dart';
 import '../../domain/entities/reel.dart' as domain; 
 import '../../domain/entities/reel.dart';
-part '../gen/reel_model.freezed.dart';
-part '../gen/reel_model.g.dart';
+part '../../../../../gen/reel_model.freezed.dart';
+part '../../../../../gen/reel_model.g.dart';
 
 @freezed
 class ReelsList with _$ReelsList {

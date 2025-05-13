@@ -17,7 +17,7 @@
 
 -> State Management using Bloc and Cubit
 
-
+-> Freezed models and build runner 
 
 
 
@@ -38,13 +38,26 @@ Connected mobile device or emulator/simulator - (Android/ios)
 **Installation**
 
 1. Clone the repository: 
-git clone https://github.com/rashida-mahroof/ulearna_test
+    git clone https://github.com/rashida-mahroof/ulearna_test.git
 
-2. Install dependencies:
-flutter pub get
+2. Run command 
+    "cd ulearna_test"
 
-3. Run the app:
-flutter run
+3. Install dependencies:
+    flutter pub get
+
+4. Run the command
+     "flutter pub run build_runner build --delete-conflicting-outputs"
+
+5. Run the app:
+    flutter run
+
+
+# If you are facing any issues, 
+
+1. Please remove the android folder or ios folder 
+2. Run "flutter clean"
+3. Run "flutter pub get"
 
 
 

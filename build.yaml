@@ -4,7 +4,7 @@ targets:
       source_gen:combining_builder:
         options:
           build_extensions:
-            "^lib/features/reels/data/models/{{}}.dart": "lib/features/reels/data/gen/{{}}.g.dart"
+            "^lib/features/reels/data/models/{{}}.dart": "gen/{{}}.g.dart"
       json_serializable:
         options:
           any_map: false
@@ -24,7 +24,7 @@ targets:
       freezed:
         options:
           build_extensions:
-            "^lib/features/reels/data/models/{{}}.dart": "lib/features/reels/data/gen/{{}}.freezed.dart"
+            "^lib/features/reels/data/models/{{}}.dart": "gen/{{}}.freezed.dart"
     sources:
       - $package$
       - lib/**
