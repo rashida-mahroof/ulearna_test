@@ -2,8 +2,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../domain/entities/category.dart' as domain;
 
-part '../../../../../gen/category_model.freezed.dart';
-part '../../../../../gen/category_model.g.dart';
+part '../../../../gen/category_model.freezed.dart';
+part '../../../../gen/category_model.g.dart';
 
 @freezed
 class CategoryModel with _$CategoryModel implements domain.Category {

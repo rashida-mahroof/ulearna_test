@@ -2,8 +2,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../domain/entities/user.dart' as domain;
 
-part '../../../../../gen/user_model.freezed.dart';
-part '../../../../../gen/user_model.g.dart';
+part '../../../../gen/user_model.freezed.dart';
+part '../../../../gen/user_model.g.dart';
 
 @freezed
 class UserModel with _$UserModel implements domain.User {
